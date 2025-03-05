@@ -1,4 +1,4 @@
-  /*Descrizione:
+/*Descrizione:
 Scrivere un programma che chieda all’utente:
 - Il numero di chilometri da percorrere
 - Età del passeggero
@@ -26,11 +26,16 @@ const kmUser = document.getElementById('km')
 console.log(kmUser)
 const mainButton = document.getElementById('button')
 console.log(mainButton)
+const total = document.getElementById('total')
+console.log(total)
+const formMain = document.getElementById('form')
+console.log(formMain)
 
-mainButton.addEventListener('click', function(event){
+
+mainButton.addEventListener('click', function (event) {
     event.preventDefault()
-
-
+    let result = document.createElement('h1')
+    let resul1 = ''
     let kmforpay = kmUser.value
     kmforpay = parseInt(kmforpay)
     console.log(kmforpay)
@@ -42,32 +47,60 @@ mainButton.addEventListener('click', function(event){
 
     let discount = 0
     let price = 0
-    if (isNaN(ageForDiscount) || isNaN(kmforpay)){
-        console.log ( "età o kilometri non validi per favore inserire un numero valido")
-    
+    if (isNaN(ageForDiscount) || isNaN(kmforpay)) {
+        resul1 = ("età o kilometri non validi per favore inserire un numero valido")
+        if (isNaN(age) || isNaN(kilometer)) {
+            resul1 =("età o kilometri non validi per favore inserire un numero valido")
+
+            // controlli eta per lo sconto 
+        } else {
+            if (age <= 18) {
+                discount = 20
+            }
+            else if (age >= 65) {
+                discount = 40
+            }
+            // calcolo sconto 
+
+            discount = (0, 21 * discount) / 100
+
+            price = (kilometer * 0, 21) - discount
+            price = price.toFixed(2)
+
+            // dichiarazione prezzo totale 
+
+             resul1 = (`il totale del tuo viaggio € ${price} euro`)
+           
+        }
         // controlli eta per lo sconto 
     } else {
-        if (ageForDiscount <= 18){
+        if (ageForDiscount <= 18) {
             discount = 20
         }
         else if (ageForDiscount >= 65) {
             discount = 40
         }
         // calcolo sconto 
-    
-        discount = (0,21 * discount)/100
-    
-        price = (kmforpay * 0,21 ) - discount
+
+        discount = (0, 21 * discount) / 100
+
+        price = (kmforpay * 0, 21) - discount
         price = price.toFixed(2)
-    
+
         // dichiarazione prezzo totale 
-       console.log (`il totale del tuo viaggio € ${ price} euro`) 
+        resul1 =(`il totale del tuo viaggio € ${price} euro`)
+
     }
+    result.innerText = resul1
 
+    console.log(resul1)
+    console.log(result)
 
-
-
-
-
+    total.append(result)
 
 })
+
+
+
+
+
