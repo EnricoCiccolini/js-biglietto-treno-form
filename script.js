@@ -47,6 +47,17 @@ console.log(formMain)
 const ticket = document.getElementById('Biglietto')
 console.log(formMain)
 
+let clickCount = 0
+
+
+mainButton.addEventListener('click', function () {
+
+   
+   clickCount ++  
+    if (clickCount === 2) {  
+        window.location.reload();  
+    }  
+})
 
 mainButton.addEventListener('click', function (event) {
     event.preventDefault()
