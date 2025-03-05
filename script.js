@@ -18,12 +18,17 @@ Se non vi sentite particolarmente creativi, questa potrebbe essere un’implemen
 */
 
 
-
+/*
 console.log("ciao");
 const ageUser = document.getElementById('age')
 console.log(ageUser)
+*/
+const ageUser = document.getElementById('age')
+console.log(ageUser)
+
 const kmUser = document.getElementById('km')
 console.log(kmUser)
+
 const mainButton = document.getElementById('button')
 console.log(mainButton)
 const total = document.getElementById('total')
@@ -34,7 +39,7 @@ console.log(formMain)
 
 mainButton.addEventListener('click', function (event) {
     event.preventDefault()
-    let result = document.createElement('h1')
+    let result = document.createElement('h3')
     let resul1 = ''
     let kmforpay = kmUser.value
     kmforpay = parseInt(kmforpay)
